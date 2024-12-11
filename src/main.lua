@@ -44,7 +44,7 @@ if genv.backdoorexe then
 end
 
 --// UI \\--
-local screenGui, uiRequire = loadstring(game:HttpGet("https://raw.githubusercontent.com/iK4oS/backdoor.exe/v8/src/ui.lua"))()
+local screenGui, uiRequire = loadstring(game:HttpGet("https://raw.githubusercontent.com/Doommonkeyvr/backdoor.exe/v8/src/ui.lua"))()
 local alertLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/uniquadev/GuiToLuaConverter/main/PluginPlace/src/alerts.lua"))()
 
 local ui = uiRequire(screenGui.main);
@@ -493,4 +493,3 @@ ui.title.Text = TITLE;
 
 alertLib.Success(screenGui, TITLE, 'Backdoor scanner successfully loaded.');
 alertLib.Info(screenGui, TITLE, 'Home to toggle ui.', 4);
-alertLib.Info(screenGui, TITLE, 'THIS HAS BEEN DISCONTINUED', 4);
